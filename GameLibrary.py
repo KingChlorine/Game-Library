@@ -6,17 +6,19 @@ def gameLibrary():
         main_menu_select = input("Type number to choose")
 
         if main_menu_select == "1":
-            print(gamesInLibrary)
+            for item in gamesInLibrary:
+                print(item, sep= "\n")
 
         if main_menu_select == "2":
             addGame = input("Type game title you wish to add:")
             gamesInLibrary.append(addGame)
 
         if main_menu_select == "3":
-            removeGame = input("Type game title you wish to remove:").lower
+            removeGame = input("Type game title you wish to remove:")
             gamesInLibrary.remove(removeGame)
 
         if main_menu_select == "4":
+            print("GoodBye!")
             break
 
 gameLibrary()
