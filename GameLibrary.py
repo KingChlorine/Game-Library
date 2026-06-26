@@ -1,9 +1,11 @@
+import json
 gamesInLibrary = []
+
 
 
 def gameLibrary():
     while True:
-        print("1.Open Game library 2. Add Game 3. Remove Game 4. Quit")
+        print("1.Open Game library 2. Add Game 3. Remove Game 4. Quit 5. Save")
         main_menu_select = input("Type number to choose")
 
         if main_menu_select == "1":
@@ -15,6 +17,9 @@ def gameLibrary():
                 game = input("Type game title:")
                 platform = input("Type which platform:")
                 gamesInLibrary.append({"Game": game, "Platform": platform})
+                #games = json.dumps(gamesInLibrary, indent=4)
+                #with open("games.json", "w") as f:
+                #    f.write(games)
                 break
 
         if main_menu_select == "3":
@@ -26,5 +31,12 @@ def gameLibrary():
         if main_menu_select == "4":
             print("GoodBye!")
             break
+
+        if main_menu_select == "5":
+            games = json.dumps(gamesInLibrary, indent=4)
+            with open("games.json", "w") as f:
+                f.write(games)
+                print("Library Saved")
+
 
 gameLibrary()
