@@ -1,6 +1,14 @@
 [
     {
+        "Game": "portal 2",
+        "Platform": "ps3"
+    },
+    {
         "Game": "gta",
+        "Platform": "ps2"
+    },
+    {
+        "Game": "spiderman 3",
         "Platform": "ps2"
     }
 ]

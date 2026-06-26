@@ -1,6 +1,11 @@
 import json
-gamesInLibrary = []
+import os
 
+if os.path.exists("games.json"):
+    with open("games.json", "r") as f:
+        gamesInLibrary = json.load(f)
+else:
+    gamesInLibrary = []
 
 
 def gameLibrary():
