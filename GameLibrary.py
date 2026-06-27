@@ -7,6 +7,29 @@ if os.path.exists("games.json"):
 else:
     gamesInLibrary = []
 
+def viewLibrary():
+    for item in gamesInLibrary:
+        print(item, sep= "\n")
+
+def addGame():
+    while True:
+        game = input("Type game title:")
+        platform = input("Type which platform:")
+        gamesInLibrary.append({"Game": game, "Platform": platform})
+        break
+
+def removeGame():
+    removeGame = input("Type game title you wish to remove:")
+    for game in gamesInLibrary:
+        if game["Game"].lower() == removeGame:
+            gamesInLibrary.remove(game)
+
+def saveToJson():
+    games = json.dumps(gamesInLibrary, indent=4)
+    with open("games.json", "w") as f:
+        f.write(games)
+        print("Library updated successfully!")
+
 
 def gameLibrary():
     while True:
@@ -14,34 +37,40 @@ def gameLibrary():
         main_menu_select = input("Type number to choose")
 
         if main_menu_select == "1":
-            for item in gamesInLibrary:
-                print(item, sep= "\n")
+            #for item in gamesInLibrary:
+            #    print(item, sep= "\n")
+            viewLibrary()
 
         if main_menu_select == "2":
-            while True:
-                game = input("Type game title:")
-                platform = input("Type which platform:")
-                gamesInLibrary.append({"Game": game, "Platform": platform})
+            #while True:
+            #    game = input("Type game title:")
+            #    platform = input("Type which platform:")
+            #    gamesInLibrary.append({"Game": game, "Platform": platform})
                 #games = json.dumps(gamesInLibrary, indent=4)
                 #with open("games.json", "w") as f:
                 #    f.write(games)
-                break
+            #    break
+            addGame()
 
         if main_menu_select == "3":
-            removeGame = input("Type game title you wish to remove:")
-            for game in gamesInLibrary:
-                if game["Game"].lower() == removeGame:
-                    gamesInLibrary.remove(game)
+           # removeGame = input("Type game title you wish to remove:")
+            #for game in gamesInLibrary:
+             #   if game["Game"].lower() == removeGame:
+              #      gamesInLibrary.remove(game)
+              removeGame()
 
         if main_menu_select == "4":
             print("GoodBye!")
             break
 
         if main_menu_select == "5":
-            games = json.dumps(gamesInLibrary, indent=4)
-            with open("games.json", "w") as f:
-                f.write(games)
-                print("Library Saved")
+            #games = json.dumps(gamesInLibrary, indent=4)
+            #with open("games.json", "w") as f:
+            #    f.write(games)
+            #    print("Library Saved")
+            saveToJson()
 
 
 gameLibrary()
+
+
