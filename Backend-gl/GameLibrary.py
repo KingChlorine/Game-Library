@@ -6,6 +6,7 @@ directory = os.path.dirname(os.path.abspath(__file__))
 #Adds json file to path
 jsonPath = os.path.join(directory, "games.json")
 
+
 if os.path.exists(jsonPath):
     with open(jsonPath, "r") as f:
         gamesInLibrary = json.load(f)
